@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>老师</title>
+</head>
+<body>
+    <h1>{{subject.name}}学科老师信息</h1>
+    <hr>
+    {% if teachers %}
+    {% for teacher in teachers %}
+    <div>
+        <div>
+            <img src="{% static teacher.photo %}" alt="">
+        </div>
+        <div>
+            <h3>{{teacher.name}}</h3>
+            <p> {{teacher.detail}}</p>
+            <p class="comment">
+                <a href="">好评</a>
+                (<span>{{teacher.good_count}}</span>)
+                <a href="">差评</a>
+                (<span>{{teacher.bad_count}}</span>
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h3>暂时没有改学科老师的信息</h3>
+    {% endif %}
+    <p>
+        <a href="/">返回首页</a>
+    </p>
+</body>
+</html>
